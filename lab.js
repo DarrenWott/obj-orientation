@@ -5,8 +5,10 @@
 */
 
 //Code here
-
-
+const me = {
+  name: 'Darren',
+  age: 33,
+};
 
 //////////////////////////// PROBLEM 2 ////////////////////////////
 
@@ -16,22 +18,27 @@
 //and goodBoy/goodGirl (a boolean).
 
 //Code here
-
+const dog = {
+  name: 'Brutus',
+  color: 'Grey',
+  age: 2,
+  goodBoy: true
+}
 
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
 //Code here
-
+console.log(dog.name)
 
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
 //Code here
-
-
+console.log(dog.color)
+console.log(dog['color'])
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
 /*
@@ -40,22 +47,33 @@
 */
 
 //Code here
-
+const favoriteThings = {
+  band: 'Queen',
+  food: 'Ribeye',
+  person: 'Spouse',
+  book: 'Rich dad, Poor dad',
+  movie: 'Rudy',
+  holiday: 'Birthday'
+}
 
 /*
-  After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
+  After you've made your object, use bracket or dot notation to add another key named 'car' with the value 
+  being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
 //Code here
-
+favoriteThings.car = 'Tundra';
+favoriteThings['show'] = 'Sportscenter';
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
-  and change the value of the book key in your favoriteThings object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
+  and change the value of the book key in your favoriteThings object to be 'Harry Potter'. 
+  (If they were either of those things already, change them to something else.)
 */
 
 //Code here
-
+favoriteThings.food = 'Chicken Nuggets'
+favoriteThings.book = 'Harry Potter'
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
@@ -73,8 +91,10 @@ var carDetails = {
 */
 
 //Code Here
+let {color, make, model, year} = carDetails
 
-
+console.log(carDetails.make)
+console.log(make)
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
 
@@ -86,12 +106,11 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  let {title, firstName, lastName} = greeting
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
-
 
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
@@ -105,8 +124,20 @@ function greeting( obj ) {
 */
 
 //Code Here
+function totalPopulation(obj) {
+  let {utah, california, texas, arizona} = obj
+  let sum = utah + california + texas + arizona
+  return sum
+}
 
+const populationObj = {
+  utah: 12,
+  california: 13,
+  texas: 21,
+  arizona: 42
+}
 
+console.log('Total population: ', totalPopulation(populationObj));
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -119,8 +150,21 @@ function greeting( obj ) {
 */
 
 //Code Here
+function ingredients(obj) {
+  let {carb, fat, protein} = obj
+  let namesArr = new Array();
+  namesArr.push(carb, fat, protein)
+  return namesArr
+}
 
 
+const ingredientsObj = {
+  carb: "delicious",
+  fat: "ok",
+  protein: "good"
+}
+
+console.log(ingredients(ingredientsObj))
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -139,17 +183,18 @@ var user = {
   name -> 'Bryan G. Smith' and email -> 'bryan.smith@devmounta.in'.
   Make that change without modifying the original object code above.
 */
-
-//Code Here
-
-
+console.log(user)
+user.name = "Bryan G Smith"
+user.email = "bryan.smith@devmounta.in"
+console.log(user)
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
   Using the user object above, delete the users age off of the object.
 */
 
 //Code Here
-
+delete user.age
+console.log(user)
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -159,8 +204,22 @@ var user = {
 */
 
 //Code here
+class Cat {
+  constructor(name, age, color){
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
 
+  meow(){
+    console.log('Meow! I am', this.name, 'the cat!');
+  }
+}
 
+let blackCat = new Cat("Salem", 3, "Black")
+
+console.log(blackCat.name)
+console.log(blackCat.meow())
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -171,6 +230,19 @@ var user = {
 */
 
 //Code here
+class wizard {
+  constructor(name, age, favoriteSpell){
+    this.name = name;
+    this.age = age;
+    this.favoriteSpell = favoriteSpell
+  }
+    castSpell(){
+      console.log(this.name, "has cast", this.favoriteSpell);
+    }
+}
+
+let harry = new wizard('Harry', 28, 'coding')
+console.log(harry.castSpell())
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -196,7 +268,26 @@ var user = {
 */
 
 //Code Here
+class phone {
+  constructor(brand, model, storage, color, price, sold){
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+    this.sold = false
+  }
 
+  sell() {
+    this.sold = true
+    console.log(this.brand, this.model, 'has been sold.')
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice
+  }
+
+}
   
 /*
     Next make three new phone instances using your class.
@@ -209,6 +300,9 @@ var user = {
 */
 
 //Code Here
+let iphone = new phone('iPhone', 'A', 20, 'Black', 50)
+let Samsung = new phone('Samsung', 'B', 30, 'Red', 100)
+let Motorola = new phone('Motorola', 'C', 40, 'Blue', 150)
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -218,7 +312,9 @@ var user = {
 */ 
 
 //Code Here 
-
+console.log(iphone)
+iphone.changePrice(500)
+console.log(iphone)
 
 /*
   Now call the sell method on one of your other phone objects
@@ -227,14 +323,17 @@ var user = {
 */
 
 //Code Here 
-
+console.log(Samsung.sold)
+Samsung.sell()
+console.log(Samsung.sold)
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
 /*
   Use the spread operator to create a copy of the colors object below.
   Store the copy in a variable called colorsCopy.
-  Note: We did not cover the spread operator in class. We do not expect you to know how to use it. Challenge yourself by going online and researching what the spread operator is and how to use it.
+  Note: We did not cover the spread operator in class. We do not expect you to know how to use it. 
+  Challenge yourself by going online and researching what the spread operator is and how to use it.
 */
 
 //do not edit this object
